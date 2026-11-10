@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
 const messages = [
   {
@@ -15,19 +15,19 @@ const messages = [
 ];
 
 router.get("/", (req, res) => {
-    res.render("index", { title: "Mini Messageboard", messages: messages })
-})
+    res.render("index", { title: "Mini Messageboard", messages: messages });
+});
 
 router.get("/new", (req, res) => {
-    res.render("post")
-})
+    res.render("post");
+});
 
 router.post("/new", (req, res) => {
-    let content = req.body
+    let content = req.body;
 
     messages.push({ text: content.messageText, user: content.userName, added: new Date() });
-    res.redirect("/")
-})
+    res.redirect("/");
+});
 
 
 module.exports = router;
